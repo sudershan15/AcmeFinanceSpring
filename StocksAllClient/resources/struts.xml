@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+ <constant name="struts.devMode" value="true" />
+ <package name="resources" extends="struts-default">
+   <interceptors>
+         <interceptor name="myinterceptor"
+            class="frontend.historical.MyInterceptor" />
+      </interceptors>
+
+      <action name="historicalxml" 
+            class="frontend.historical.historicalxml" 
+            method="execute">
+           <interceptor-ref name="params"/>
+         	<interceptor-ref name="myinterceptor" />
+            <result name="success">/success.jsp</result>
+      </action>
+      <action name="snapshotxml" 
+            class="frontend.historical.snapshotxml" 
+            method="execute">
+           <interceptor-ref name="params"/>
+         	<interceptor-ref name="myinterceptor" />
+            <result name="success">/success.jsp</result>
+      </action>
+      <action name="analyzedxml" 
+            class="frontend.historical.analyzedxml" 
+            method="execute">
+           <interceptor-ref name="params"/>
+         	<interceptor-ref name="myinterceptor" />
+            <result name="success">/success.jsp</result>
+      </action>
+       <action name="fileupload" 
+            class="frontend.historical.Uploadactiondata" 
+            method="execute">
+           <interceptor-ref name="params"/>
+         	<interceptor-ref name="myinterceptor" />
+            <result name="success">/uploadresult.jsp</result>
+      </action>
+       <action name="temporal" 
+            class="frontend.historical.Temporal" 
+            method="execute">
+           <interceptor-ref name="params"/>
+         	<interceptor-ref name="myinterceptor" />
+            <result name="success">/success.jsp</result>
+      </action>
+      <action name="spatial" 
+            class="frontend.historical.spatial" 
+            method="execute">
+           <interceptor-ref name="params"/>
+         	<interceptor-ref name="myinterceptor" />
+            <result name="success">/success.jsp</result>
+      </action>
+      
+   </package>
+</struts>
